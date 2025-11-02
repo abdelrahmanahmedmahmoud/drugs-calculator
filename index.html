@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drugs calculator (prototype)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <h3>PICU Drugs Calculator </h3>
+            <ul>
+                <li><button id="ivbtn" onclick="ivback()"><i class="fa-solid fa-syringe"></i></button><samp>IV</samp></li>
+                <li><button id="oralbtn" onclick="oralback()"><i class="bi bi-capsule-pill"></i></button><samp>Oral</samp></li>
+                <li><button id="dfbtn" onclick="dehydrationFluidsBack()"><i class="bi bi-droplet"></i></button><samp>Dehydration</samp></li>
+                <li><button id="mfbtn" onclick="MFback()"><i class="bi bi-moisture"></i></button><samp>Fluids</samp></li>
+                <li><button id="maniwalbtn" onclick="ManiwalApear()"><i class="bi bi-calculator"></i></button><samp>Manual</samp></li>
+                <li><button id="referncebtn" onclick="referanceapear()"><i class="bi bi-journal-bookmark"></i></button><samp>Refernces</samp></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="iv">
+        <div id="inputIV">
+            <div id="inputIV2">
+                <h1 id="inputIV2h1">I.V calculator</h1>
+                <input type="text" id="dose-input-IV" placeholder="Enter name of drug" list="dose-IV" required value="">
+                <datalist id="dose-IV">
+                    <option>
+                        Ceftriaxone
+                    </option>
+                    <option>
+                        Cefotaxime
+                    </option>
+                    <option>
+                        Cefepime
+                    </option>
+                    <option>
+                        Ceftazidime
+                    </option>
+                    <option>
+                        unasyn
+                    </option>
+                    <option>
+                        tazocin
+                    </option>
+                    <option>
+                        tigecycline
+                    </option>
+                    <option>
+                        vancomycin
+                    </option>
+                    <option>
+                        Amikacin
+                    </option>
+                    <option>
+                        Gentamycin
+                    </option>
+                    <option>
+                        Meronam
+                    </option>
+                    <option>
+                        Tienam
+
+                    </option>
+                    <option>
+                        clindamycin
+                    </option>
+                    <option>
+                        Naloxone
+                    </option>
+                    <option>
+                        Ciprofloxacin
+
+                    </option>
+                    <option>levofloxacin
+                    </option>
+                    <option>Moxifloxacin
+                    </option>
+                    <option>Azithromycin
+                    </option>
+                    <option>Linzeloid
+                    </option>
+                    <option>Metronidazole
+                    </option>
+                    <option>Fluconazole
+
+                    </option>
+                    <option>Amphoteracin B
+                    </option>
+                    <option>Acyclovir
+                    </option>
+                    <option>Phenytoin
+                    </option>
+                    <option>Levetiracetam
+                    </option>
+                    <option>Fentanyl
+                    </option>
+                    <option>ketamine
+                    </option>
+                    <option>Midazolam
+                    </option>
+                    <option>Pethidine
+                    </option>
+                    <option>Pantoprazole
+                    </option>
+                    <option>Famotidine
+                    </option>
+                    <option>ondansetron
+                    </option>
+                    <option>paracetamol
+                    </option>
+                    <option>Ibuprofen
+                    </option>
+                    <option>Mannitol
+                    </option>
+                    <option>Albumin
+                    </option>
+                    <option>Mgso4
+                    </option>
+                    <option>Dexamethasone
+                    </option>
+                    <option>Solumedrol
+
+                    </option>
+                    <option>Dopamine
+                    </option>
+                    <option>Dobuterix
+                    </option>
+                    <option>Adrenaline
+                    </option>
+                    <option>Nor adrenaline
+                    </option>
+                    <option>Atropine
+                    </option>
+                    <option>Amiodarone
+                    </option>
+                    <option>Ca gluconate
+                    </option>
+                    <option>phenobarbitone
+                    </option>
+                    <option>Enoxaparin
+                    </option>
+                    <option>Kapron
+                    </option>
+                    <option>Milrinone
+                    </option>
+                    <option>Dicynone
+                    </option>
+                    <option>
+                        Aminophylline
+                    </option>
+                    <option>Lasix
+                    </option>
+                    <option>Propranolol
+                    </option>
+                    <option>somazina
+                    </option>
+                    <option>Aminoleban</option>
+                    <option>kidmin</option>
+                    <option>Amiparen</option>
+                </datalist>
+                <input type="number" id="requiredIV" placeholder="Enter required dose" required value="">
+                <input type="number" id="weightIV" placeholder="Enter weight in kg" required value="">
+            </div>
+            <div id="calculateIV">
+                <p id="calculateIVpara">click on calculate after writing all input</p>
+                <button onclick="calcApearIV();disapearinput();" id="calcIV">calculate</button>
+            </div>
+        </div>
+        <div id="outputIV">
+            <div id="inputbackIV">
+                <p id="inputbackIVpara">if you want to go back to input press input</p>
+                <button id="inputbackIVbtn" onclick="disapearoutput()">input</button>
+            </div>
+            <div id="outputIV2">
+                <h1 id="GeneralInstructionsIV">General instructions:</h1>
+                <div id="ReconstitueIV">Reconstitute unknown</div>
+                <div id="concInMlIV">To give unknown / ml</div>
+                <div id="prefereddiluentIV">Prefered diluent is unknown</div>
+                <h1 id="CalculationsForPatientIV">Calculations for patient:</h1>
+                <div id="resultIV">Dose for child is unknown mg</div>
+                <div id="maxPerDoseIV">Maximum dose is unknown </div>
+                <div id="takenIV">volume to be taken from vial is unknown ml</div>
+                <div id="infusion">Rate of infusion is unknown ml/hr</div>
+                <div id="minumimIV">Minimum dilution is unknown ml diluent</div>
+                <div id="rateIV">rate of infusion is unknown ml/hr</div>
+                <div id="maximumIV">Maximum dilution is unknown ml diluent</div>
+                <div id="timeOfAdminstrationIV">Taken Over unknown</div>
+                <div id="DurationIV">Duration is unknown</div>
+                <div id="StabilityOfVialIV">Stability of vial is unknown</div>
+                <div id="notesIV">Iv Push: unknown</div>
+                <div id="renalAdjustmentIV">Renal Adjustment unknown required</div>
+                <div id="monitor">monitor: unknown</div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section id="oral">
+        <div id="inputOral">
+            <div id="inputOral2">
+                <h1>Oral Calculator</h1>
+                <input type="text" id="dose-input-oral" placeholder="Enter name of drug" list="dose-oral" required
+                    value="">
+                <datalist id="dose-oral">
+                    <option>Zithromax</option>
+                    <option>septazole</option>
+                    <option>Gast reg</option>
+                    <option>Metronidazole syp</option>
+                    <option>Xilone forte</option>
+                    <option>Xilone</option>
+                    <option>Depakine (valproate)</option>
+                    <option>Ethoxa</option>
+                    <option>lacosamide</option>
+                    <option>Tiratam</option>
+                    <option>Tegretol</option>
+                    <option>Potasium</option>
+                    <option>Capoten</option>
+                    <option>amiodarone</option>
+                    <option>Depakine 200 mg 1 ml</option>
+                    <option>Depakine 250 mg 5 ml</option>
+                    <option>Depakine 200 mg 5 ml</option>
+                    <option>Depakine 57.64 mg 1 ml</option>
+                    <option>Inderal</option>
+                    <option>Norvasc</option>
+                    <option>averozolid</option>
+                    <option>Cidamax</option>
+                    <option>Baclofen</option>
+                    <option>phenobarbital</option>
+                     <option>Brivaracetam</option>
+                    <option>Tamiflu</option>
+                    <option>Tamiflu syrup</option>
+                </datalist>
+                <input type="number" id="wieght-oral" placeholder="Enter weight of patient" required value="">
+                <input type="number" id="required-dose-input-oral" placeholder="Enter required dose" required value="">
+            </div>
+
+            <div id="calculteOral">
+                <p id="calculateOralpara">click on calculate after writing all input</p>
+                <button onclick="calcoralapear();calcOralf();" id="calculatebtnOral">calculate</button>
+            </div>
+
+        </div>
+        <div id="outputOral">
+            <div id="inputBackOral">
+                <p id="inputBackOralpara">if you want to go back to input press input</p>
+                <button id="inputBackOralbtn" onclick="disapearoraloutput();">input</button>
+            </div>
+            <div id="outputOral2">
+                <div>
+                    <h1>General Instructions:</h1>
+                </div>
+                <b id="generalins">none</b>
+                <p id="takenOral">volume to be taken from bottle is unknown ml</p>
+                <p id="doseForChildOral">dose for child oral unknown mg</p>
+                <p id="maxPerDoseOral">max per dose oral unknown mg</p>
+                <p id="durationOral">duration oral is unknown</p>
+                <p id="notesOral">Notes: unknown</p>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <section id="DehydrationFluids">
+        <div id="inputDF">
+            <div id="inputDF2">
+                <h1 id="inputDF2H1">Dehydration fluids calculator</h1>
+                <input type="number" id="weightDF" placeholder="enter weight in kg">
+                <input type="number" id="sodium" placeholder="enter sodium in meq/L">
+                <input type="number" id="bolusDF" placeholder="enter bolus in ml">
+                <input type="number" id="deficitDF" placeholder="enter deficit in ml">
+            </div>
+
+            <div id="calculateDF">
+                <h3 id="GeneralDF">General Instructions:</h3>
+                <div id="bolusInstractionsDF">bolus <br>
+                    <div>should be 20 ml / kg </div>
+                </div>
+                <h3 id="h3">deficit</h3>
+                <p id="bolusInstractionsDF2">
+                    <button id="infantbtn">Infant (1 : 12 mon) </button>
+                    <button id="childbtn">Child ( > 1 year)</button>
+                    <div id="child"></div>
+                    <div id="infant"></div>
+                </p>
+                <p id="calculateDfpara">click on calculate after writing all input</p>
+                <button id="calculateDfbtn" onclick="calcDF();inputDisapear()">calculate</button>
+            </div>
+        </div>
+
+        <div id="outbupDF">
+            <div id="inputbackDF">
+                <p id="inputbackDFpara">if you want to go back to input press input</p>
+                <button id="inputbackDFbtn" onclick="outputDisapear();">input</button>
+            </div>
+            <div id="outbupDF2">
+                <h3 id="CalculationsDF">Calculations for patient:</h3>
+                <h3 id="first">first method:</h3>
+                <div id="fluidRatePer8hrParent">
+                    <div id="fluidRatePer8hr">1st 8hrs is unknown</div>
+                    <div id="fluidRatePerhr">rate of infusion is unknown</div>
+                </div>
+                <div id="fluidRatePer16hrParent">
+                    <div id="fluidRatePer16hr">Remain 16 hr is unknown</div>
+                    <div id="fluidRatePerhr2">rate of infusion is unknown</div>
+                </div>
+                <h3 id="second">second method:</h3>
+                <div id="fluidRateOver24hrParent">
+                    <div id="fluidRateOver24hr">over 24 hours is unknown</div>
+                    <div id="fluidRatePerhr3">rate of infusion is unknown</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="MF">
+        <div id="inputMF">
+            <div id="inputMF2">
+                <h1 id="inputMF2h1" class="move-item-input margin">Maintenance fluids calculator</h1>
+                <input id="weightMF" type="number" placeholder="enter weight in kg" class="move-item-input">
+                <button id="addNameInput" class="move-item-input ">&plus; click to add drugs</button>
+                <button id="calculateFludesOfdrugsMFbtn" class="move-item-input ">click to calculate after choosing
+                    every drug</button>
+                <div id="parentOfInputs"></div>
+            </div>
+
+            <div id="calculateMF">
+                <p id="calculateMFpara">click on result after choosing all drugs</p>
+                <button onclick="outputApearMF()" id="calculateMFbtn">result</button>
+            </div>
+        </div>
+        <div id="outputMF">
+            <div id="inputbackMF">
+                <p id="inputbackMFpara">if you want to go back to input press input</p>
+                <button id="inputbackMFbtn" onclick="inputApearMF()">input</button>
+            </div>
+            <div id="outputMF2">
+
+                <div id="volumeOfAllDrugs" class="move-item-output">volume of all drugs over 24 hr: unknown</div>
+                <div id="maintenance2" class="move-item-output">maintenance fluids before substitution: unknown</div>
+                <div id="maintenance3" class="move-item-output">maintenance fluids after substitution: unknown</div>
+                <div id="maintenance3/24" class="move-item-output">maintenance fluids over 24 hours after substitution:
+                    unknown</div>
+                <div>
+                    <details id="g">
+                        <summary>Click For Details</summary>
+                    </details>
+                </div>
+            </div>
+    </section>
+    <section id="IvManiwal">
+        <div id="inputIVMan">
+            <h3>IV Manual</h3>
+            <input type="number" id="weightIVManiwal" placeholder="Enter wt in kg">
+            <input type="number" id="doseIVManiwal" placeholder="enter dose in mg">
+            <input type="number" id="concInMlIVManiwal" placeholder="conc in mg">
+            <input type="number" id="volumeIvManiwal" placeholder="volume in ml">
+            <input type="number" id="minConcIvManiwal" placeholder="minmum conc of dilution">
+            <button onclick="calcIvMan()">calculate</button>
+        </div>
+        <div id="outputIVMan">
+            <div id="childDoseIVManiwal">Dose for child is unknown</div>
+            <div id="volumeToBeTakenIVManiwal">volume to be taken from vial is unknown</div>
+            <div id="minDilutionIVManiwal">Min dilution is unknown</div>
+        </div>
+
+    </section>
+    <section id="oralManiwal">
+        <div id="inputOralMan">
+            <h3>Oral Manual</h3>
+            <input type="number" id="weightOralManiwal" placeholder="Enter wt in kg">
+            <input type="number" id="doseOralManiwal" placeholder="enter dose in mg">
+            <input type="number" id="concInMlOralManiwal" placeholder="conc in mg">
+            <input type="number" id="volumeOralManiwal" placeholder="volume in ml">
+            <button onclick="calcOralMan()">calculate</button>
+        </div>
+        <div id="outputOralMan">
+            <div id="childDoseOralManiwal">dose child is unknown</div>
+            <div id="volumeToBeTakenOralManiwal">volume to be taken is unknown</div>
+        </div>
+    </section>
+        <section id="choice">
+            <button id="ivmaniwalbtn2" onclick="IvManiwalApear()" style="  width: 20%;height: 40px; border-radius: 10px;background-color: rgb(255, 255, 255);border: none;padding-left: 0; font-size: 1rem;box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.1);margin-top: 10px;">IV Manual</button>
+            <button id="oralmaniwalbtn2" onclick="OralManiwalApear()"style="  width: 20%;height: 40px; border-radius: 10px;background-color: rgb(255, 255, 255);border: none;padding-left: 0; font-size: 1rem;box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.1);margin-top: 10px;">Oral Manual</button>
+        </section>
+    <section id="refernce">
+        <div id="refernceContent">
+            <h1>Refernces</h1>
+            <ul>
+                <li> Uptodate 2025</li>
+                <li> Micromedex pediaterics 2025</li>
+                <li> Harriet lane textbook</li>
+                <li> Nelson pediaterics Antimicrobial-Therapy 31st Edition</li>
+                <li> globalrph.com </li>
+                
+            </ul>
+        </div>
+                <div id="contact">
+            <ul>
+                <h2>Ahmed Mahmoud Metwalli(Supervisor)</h2>
+                <p>Picu Senior Zagazig General Hospital</p>
+                <p>Email:ph.ahmedmahmoudmetwalli@gmail.com</p>
+                <p>Phone & whatsapp:0100 921 1198</p>
+            </ul>
+            <ul>
+                <h2>Abd El Rahman Ahmed Mahmoud(Programer)</h2>
+                <p>Email:bodimeto1@gmail.com</p>
+                <p>phone:0100 385 1203</p>
+            </ul>
+            <ul>
+                <h2>Rodina Ahmed Mahmoud(Desinger)</h2>
+            </ul>
+        </div>
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>
